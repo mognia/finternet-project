@@ -8,6 +8,8 @@ import { TableStepComponent } from './components/table-step/table-step.component
 import { SummaryStepComponent } from './components/summary-step/summary-step.component';
 import {AppRoutingModule} from "./app-routing.module";
 import {StepsModule} from "primeng/steps";
+import {FileUploadModule} from "primeng/fileupload";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import {StepsModule} from "primeng/steps";
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     StepsModule,
+    FileUploadModule
   ],
   providers: [],
   bootstrap: [AppComponent]
