@@ -11,6 +11,8 @@ import {StepsModule} from "primeng/steps";
 import {FileUploadModule} from "primeng/fileupload";
 import {HttpClientModule} from "@angular/common/http";
 import { FooterBtnsComponent } from './components/footer-btns/footer-btns.component';
+import {CardModule} from "primeng/card";
+import {InputTextModule} from "primeng/inputtext";
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { FooterBtnsComponent } from './components/footer-btns/footer-btns.compon
     AppRoutingModule,
     HttpClientModule,
     StepsModule,
-    FileUploadModule
+    FileUploadModule,
+    CardModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]

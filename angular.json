@@ -28,7 +28,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss"و,
+              "./node_modules/primeflex/primeflex.css"
+
             ],
             "scripts": []
           },
