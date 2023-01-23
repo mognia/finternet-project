@@ -10,6 +10,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import {StepsModule} from "primeng/steps";
 import {FileUploadModule} from "primeng/fileupload";
 import {HttpClientModule} from "@angular/common/http";
+import { FooterBtnsComponent } from './components/footer-btns/footer-btns.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {HttpClientModule} from "@angular/common/http";
     ImageStepComponent,
     FormStepComponent,
     TableStepComponent,
-    SummaryStepComponent
+    SummaryStepComponent,
+    FooterBtnsComponent
   ],
   imports: [
     BrowserModule,
