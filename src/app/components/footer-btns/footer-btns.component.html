@@ -1,5 +1,10 @@
 <div class="btnBox w-full flex flex-row justify-between mt-3 ">
-  <button pButton pRipple type="button" label="Danger" class="p-button-raised p-button-danger ">Previous</button>
-  <button pButton pRipple type="button" label="Success" class="p-button-raised p-button-success ">Next</button>
+  <div>
+    <button *ngIf="enablePre" pButton pRipple type="button" label="Danger" class="p-button-raised p-button-danger" (click)="onPre(true)">Previous</button>
+  </div>
+  <div>
+    <button *ngIf="enableNext" pButton pRipple type="button" label="Success" class="p-button-raised p-button-success" (click)="onNext(true)">Next</button>
+
+  </div>
 
 </div>
