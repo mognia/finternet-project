@@ -13,19 +13,19 @@ export class AppComponent implements OnInit {
   }
   ngOnInit(): void {
     this.items = [{
-      label: 'Personal',
+      label: 'Upload your image',
       routerLink: ''
     },
       {
-        label: 'Seat',
+        label: 'Form',
         routerLink: 'second-step'
       },
       {
-        label: 'Payment',
+        label: 'Select Person',
         routerLink: 'third-step'
       },
       {
-        label: 'Confirmation',
+        label: 'Summary',
         routerLink: 'summary'
       }
     ];

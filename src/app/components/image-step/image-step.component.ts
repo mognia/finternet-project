@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {SharedService} from "../../services/shared.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-image-step',
@@ -8,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class ImageStepComponent implements OnInit {
   uploadedFiles: any[] = [];
 
-  constructor() { }
+  constructor(public sharedService:SharedService,public router: Router) { }
 
   ngOnInit(): void {
   }
@@ -16,6 +18,9 @@ export class ImageStepComponent implements OnInit {
     for(let file of event.files) {
       this.uploadedFiles.push(file);
     }
-
+  }
+  next(){
+    this.sharedService.setImageDetails(this.uploadedFiles);
+    this.router.navigate(["second-step"]);
   }
 }
