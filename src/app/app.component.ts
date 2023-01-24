@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   }
   ngOnInit(): void {
     this.items = [{
-      label: 'Upload your image',
+      label: 'Image',
       routerLink: ''
     },
       {
@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
         routerLink: 'second-step'
       },
       {
-        label: 'Select Person',
+        label: 'Select',
         routerLink: 'third-step'
       },
       {

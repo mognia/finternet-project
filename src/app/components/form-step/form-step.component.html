@@ -1,27 +1,31 @@
-<p-card header="sample fom">
-  <div class="grid p-fluid">
-    <div class="col-12 md:col-4">
+<p-card header="sample form">
+  <div class="grid p-fluid justify-content-center">
+    <div class="col-12 md:col-5 p-field" >
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">$</span>
         <input type="text" pInputText placeholder="Amount">
       </div>
     </div>
+    <div class="col-12 md:col-5 p-field" >
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-money-bill"></i></span>
+        <input type="text" pInputText placeholder="Source of fund">
+      </div>
+    </div>
 
-    <div class="col-12 md:col-4 p-field">
-      <label for="min-max">Min-Max</label>
+    <div class="col-12 md:col-5 p-field">
       <p-calendar
         [(ngModel)]="date"
         [minDate]="minDate"
         [maxDate]="maxDate"
         [readonlyInput]="true"
         inputId="min-max"
+        placeholder="Select Date"
       ></p-calendar>
     </div>
-    <div class="col-12 md:col-4">
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon">www</span>
-        <input type="text" pInputText placeholder="Website">
-      </div>
+    <div class="col-12 md:col-5 p-field">
+      <p-dropdown [options]="options" [(ngModel)]="selectedOption" optionLabel="name"></p-dropdown>
     </div>
   </div>
+  <app-footer-btns (nextPage)="nextPage()" (prePage)="prePage()" ></app-footer-btns>
 </p-card>
