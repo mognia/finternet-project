@@ -1,31 +1,47 @@
-<p-card header="sample form">
-  <div class="grid p-fluid justify-content-center">
-    <div class="col-12 md:col-5 p-field" >
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon">$</span>
-        <input type="text" pInputText placeholder="Amount">
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+  <p-card header="sample form">
+    <div class="grid p-fluid justify-content-center">
+      <div class="col-12 md:col-5 p-field">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon">$</span>
+          <input formControlName="amount" type="text" pInputText placeholder="Amount">
+        </div>
+        <div class="text-red-500" *ngIf="myForm.get('amount')?.invalid && (myForm.get('amount')?.dirty || myForm.get('amount')?.touched)">
+          Please provide a valid amount.
+        </div>
       </div>
-    </div>
-    <div class="col-12 md:col-5 p-field" >
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon"><i class="pi pi-money-bill"></i></span>
-        <input type="text" pInputText placeholder="Source of fund">
+      <div class="col-12 md:col-5 p-field">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-money-bill"></i></span>
+          <input formControlName="srcAmount" type="text" pInputText placeholder="Source of fund">
+        </div>
+        <div class="text-red-500" *ngIf="myForm.get('srcAmount')?.invalid && (myForm.get('srcAmount')?.dirty || myForm.get('srcAmount')?.touched)">
+          Please provide a valid source of amount.
+        </div>
       </div>
-    </div>
 
-    <div class="col-12 md:col-5 p-field">
-      <p-calendar
-        [(ngModel)]="date"
-        [minDate]="minDate"
-        [maxDate]="maxDate"
-        [readonlyInput]="true"
-        inputId="min-max"
-        placeholder="Select Date"
-      ></p-calendar>
+      <div class="col-12 md:col-5 p-field">
+        <p-calendar
+          formControlName="date"
+          [(ngModel)]="date"
+          [minDate]="minDate"
+          [maxDate]="maxDate"
+          [readonlyInput]="true"
+          inputId="min-max"
+          placeholder="Select Date"
+        ></p-calendar>
+        <div class="text-red-500" *ngIf="myForm.get('date')?.invalid && (myForm.get('date')?.dirty || myForm.get('date')?.touched)">
+          Please select a valid date.
+        </div>
+      </div>
+      <div class="col-12 md:col-5 p-field">
+        <p-dropdown formControlName="select" [options]="options" [(ngModel)]="selectedOption"
+                    optionLabel="name"></p-dropdown>
+        <div class="text-red-500" *ngIf="myForm.get('select')?.invalid && (myForm.get('select')?.dirty || myForm.get('select')?.touched)">
+          Please select a valid Status.
+        </div>
+      </div>
     </div>
-    <div class="col-12 md:col-5 p-field">
-      <p-dropdown [options]="options" [(ngModel)]="selectedOption" optionLabel="name"></p-dropdown>
-    </div>
-  </div>
-  <app-footer-btns (nextPage)="nextPage()" (prePage)="prePage()" ></app-footer-btns>
-</p-card>
+    <app-footer-btns [enableNext]="myForm.valid" (nextPage)="nextPage()" (prePage)="prePage()"></app-footer-btns>
+  </p-card>
+</form>

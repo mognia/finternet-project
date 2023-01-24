@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 interface Options {
   name: string,
@@ -15,7 +16,8 @@ export class FormStepComponent implements OnInit {
   maxDate!: Date;
   options!: Options[];
   selectedOption!: Options;
-  constructor() { }
+  myForm!: FormGroup;
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     let today = new Date();
@@ -29,8 +31,34 @@ export class FormStepComponent implements OnInit {
       {name: 'Busy', code: 'BSY'},
       {name: 'Deactivated', code: 'DC'},
     ];
+    this.myForm = this.fb.group({
+      amount: ['',[Validators.required,CustomValidator.numeric]],
+      srcAmount: ['',[Validators.required,Validators.pattern('^[a-zA-Z \-\']+')]],
+      date: [this.date,Validators.required],
+      select: [this.selectedOption,Validators.required],
+    });
   }
-  nextPage() {}
+  nextPage() {
+  }
   prePage(){}
 
+  onSubmit(form: FormGroup) {
+    console.log('Valid?', form.valid); // true or false
+    console.log('Date', form.value.date);
+    console.log('amount', form.value.amount);
+    console.log('srcAmount', form.value.srcAmount);
+    console.log('select', form.value.select);
+  }
+}
+export class CustomValidator{
+  // Number only validation
+  static numeric(control: AbstractControl) {
+    let val = control.value;
+
+    if (val === null || val === '') return null;
+
+    if (!val.toString().match(/^[0-9]+(\.?[0-9]+)?$/)) return { 'invalidNumber': true };
+
+    return null;
+  }
 }

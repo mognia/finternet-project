@@ -14,7 +14,7 @@ import { FooterBtnsComponent } from './components/footer-btns/footer-btns.compon
 import {CardModule} from "primeng/card";
 import {InputTextModule} from "primeng/inputtext";
 import {CalendarModule} from "primeng/calendar";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {DropdownModule} from "primeng/dropdown";
 
@@ -38,7 +38,8 @@ import {DropdownModule} from "primeng/dropdown";
     InputTextModule,
     CalendarModule,
     FormsModule,
-    DropdownModule
+    DropdownModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
