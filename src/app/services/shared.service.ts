@@ -15,4 +15,7 @@ export class SharedService {
   setFormDetails(form:object){
     this.formDetails.next(form)
   }
+  setTableValue(user:object) {
+    this.tableDetails.next(user)
+  }
 }

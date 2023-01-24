@@ -1,0 +1,23 @@
+{
+  "data" : [
+    {
+      "name": "mamad",
+      "age" : 27,
+      "rate" : 100
+    },
+    {
+      "name": "alex",
+      "age" : 57,
+      "rate" : 30
+    },    {
+      "name": "Natalia",
+      "age" : 19,
+      "rate" : 50
+    },
+    {
+      "name": "Bob",
+      "age" : 47,
+      "rate" : 70
+    }
+  ]
+}

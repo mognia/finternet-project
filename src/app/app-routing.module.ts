@@ -6,11 +6,11 @@ import {TableStepComponent} from "./components/table-step/table-step.component";
 import {SummaryStepComponent} from "./components/summary-step/summary-step.component";
 
 const appRoutes: Routes = [
-  { path: '', component: ImageStepComponent },
+  { path: 'first-step', component: ImageStepComponent },
   { path: 'second-step',component: FormStepComponent },
   { path: 'third-step',component: TableStepComponent },
   { path: 'summary',component: SummaryStepComponent },
-  // { path: '',   redirectTo: '/first-step', pathMatch: 'full' },
+  { path: '',   redirectTo: '/first-step', pathMatch: 'full' },
 ];
 
 @NgModule({

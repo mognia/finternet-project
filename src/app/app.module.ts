@@ -17,6 +17,7 @@ import {CalendarModule} from "primeng/calendar";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {DropdownModule} from "primeng/dropdown";
+import {TableModule} from "primeng/table";
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {DropdownModule} from "primeng/dropdown";
     CalendarModule,
     FormsModule,
     DropdownModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

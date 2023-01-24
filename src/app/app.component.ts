@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.items = [{
       label: 'Image',
-      routerLink: ''
+      routerLink: 'first-step'
     },
       {
         label: 'Form',
