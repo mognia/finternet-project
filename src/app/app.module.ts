@@ -13,6 +13,9 @@ import {HttpClientModule} from "@angular/common/http";
 import { FooterBtnsComponent } from './components/footer-btns/footer-btns.component';
 import {CardModule} from "primeng/card";
 import {InputTextModule} from "primeng/inputtext";
+import {CalendarModule} from "primeng/calendar";
+import {FormsModule} from "@angular/forms";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -25,12 +28,15 @@ import {InputTextModule} from "primeng/inputtext";
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     StepsModule,
     FileUploadModule,
     CardModule,
-    InputTextModule
+    InputTextModule,
+    CalendarModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

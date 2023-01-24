@@ -1,17 +1,26 @@
-<p-card header="sample form" class="formcontainer">
+<p-card header="sample fom">
   <div class="grid p-fluid">
-    <div class="col-12 md:col-5">
+    <div class="col-12 md:col-4">
       <div class="p-inputgroup">
-        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-        <input type="text" pInputText placeholder="Username">
+        <span class="p-inputgroup-addon">$</span>
+        <input type="text" pInputText placeholder="Amount">
       </div>
     </div>
 
-    <div class="col-12 md:col-5">
+    <div class="col-12 md:col-4 p-field">
+      <label for="min-max">Min-Max</label>
+      <p-calendar
+        [(ngModel)]="date"
+        [minDate]="minDate"
+        [maxDate]="maxDate"
+        [readonlyInput]="true"
+        inputId="min-max"
+      ></p-calendar>
+    </div>
+    <div class="col-12 md:col-4">
       <div class="p-inputgroup">
-        <span class="p-inputgroup-addon">$</span>
-        <input type="text" pInputText placeholder="Price">
-        <span class="p-inputgroup-addon">.00</span>
+        <span class="p-inputgroup-addon">www</span>
+        <input type="text" pInputText placeholder="Website">
       </div>
     </div>
   </div>
