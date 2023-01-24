@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
+import {SharedService} from "../../services/shared.service";
 
 interface Options {
   name: string,
@@ -17,7 +19,7 @@ export class FormStepComponent implements OnInit {
   options!: Options[];
   selectedOption!: Options;
   myForm!: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,public sharedService:SharedService,public router: Router) { }
 
   ngOnInit(): void {
     let today = new Date();
@@ -39,26 +41,22 @@ export class FormStepComponent implements OnInit {
     });
   }
   nextPage() {
+    if (this.myForm.valid) {
+      this.sharedService.setFormDetails(this.myForm.value);
+      this.router.navigate(["third-step"]);
+    }
   }
-  prePage(){}
+  prePage(){
+    this.router.navigate([""]);
+  }
 
-  onSubmit(form: FormGroup) {
-    console.log('Valid?', form.valid); // true or false
-    console.log('Date', form.value.date);
-    console.log('amount', form.value.amount);
-    console.log('srcAmount', form.value.srcAmount);
-    console.log('select', form.value.select);
-  }
 }
 export class CustomValidator{
   // Number only validation
   static numeric(control: AbstractControl) {
     let val = control.value;
-
     if (val === null || val === '') return null;
-
     if (!val.toString().match(/^[0-9]+(\.?[0-9]+)?$/)) return { 'invalidNumber': true };
-
     return null;
   }
 }

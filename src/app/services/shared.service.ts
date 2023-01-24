@@ -6,11 +6,13 @@ import {BehaviorSubject, Subject} from "rxjs";
 })
 export class SharedService {
  imageDetails  = new Subject();
- formDetails  = new BehaviorSubject(null);
- tableDetails  = new BehaviorSubject(null);
+ formDetails  = new Subject();
+ tableDetails  = new Subject();
   constructor() { }
   setImageDetails(details: any[]=[]) {
     this.imageDetails.next(details)
   }
-  setFormDetails(){}
+  setFormDetails(form:object){
+    this.formDetails.next(form)
+  }
 }
