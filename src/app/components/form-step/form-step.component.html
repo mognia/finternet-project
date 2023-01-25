@@ -35,9 +35,9 @@
         </div>
       </div>
       <div class="col-12 md:col-5 p-field">
-        <p-dropdown formControlName="select" [options]="options" [(ngModel)]="selectedOption"
+        <p-dropdown formControlName="status" [options]="options" [(ngModel)]="selectedOption"
                     optionLabel="name"></p-dropdown>
-        <div class="text-red-500" *ngIf="myForm.get('select')?.invalid && (myForm.get('select')?.dirty || myForm.get('select')?.touched)">
+        <div class="text-red-500" *ngIf="myForm.get('status')?.invalid && (myForm.get('status')?.dirty || myForm.get('status')?.touched)">
           Please select a valid Status.
         </div>
       </div>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {SharedService} from "../../services/shared.service";
-
+import * as moment from 'moment';
 interface Options {
   name: string,
   code: string
@@ -37,11 +37,13 @@ export class FormStepComponent implements OnInit {
       amount: ['',[Validators.required,CustomValidator.numeric]],
       srcAmount: ['',[Validators.required,Validators.pattern('^[a-zA-Z \-\']+')]],
       date: [this.date,Validators.required],
-      select: [this.selectedOption,Validators.required],
+      status: [this.selectedOption,Validators.required],
     });
   }
   nextPage() {
     if (this.myForm.valid) {
+      this.myForm.value.status = this.myForm.value.status.name
+      this.myForm.value.date = moment(this.myForm.value.date).format('MM/DD/YYYY');
       this.sharedService.setFormDetails(this.myForm.value);
       this.router.navigate(["third-step"]);
     }

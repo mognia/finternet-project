@@ -1,17 +1,15 @@
 <div class="card flex-col mt-10">
 <p-card header="Upload your image">
   <h5>select your Image</h5>
-  <p-fileUpload name="demo[]" url="./upload.php" (onUpload)="onUpload($event)"
+  <p-fileUpload name="demo[]" (onSelect)="onUpload($event)"
                 accept="image/*" [maxFileSize]="1000000">
-    <ng-template pTemplate="toolbar">
-      <div>Upload 3 Files</div>
-    </ng-template>
     <ng-template pTemplate="content">
       <ul *ngIf="uploadedFiles.length">
         <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
       </ul>
     </ng-template>
   </p-fileUpload>
+  <img *ngIf="uploadedFiles.length" [src]="uploadedFiles[0].objectURL.changingThisBreaksApplicationSecurity" alt="">
   <app-footer-btns (nextPage)="next()" [enablePre]=false></app-footer-btns>
 </p-card>
 </div>

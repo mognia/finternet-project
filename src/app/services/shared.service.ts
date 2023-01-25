@@ -1,15 +1,15 @@
-import { Injectable } from '@angular/core';
-import {BehaviorSubject, Subject} from "rxjs";
+import {Injectable} from '@angular/core';
+import {BehaviorSubject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharedService {
- imageDetails  = new Subject();
- formDetails  = new Subject();
- tableDetails  = new Subject();
+ imageDetails  = new BehaviorSubject([null]);
+ formDetails  = new BehaviorSubject({});
+ tableDetails  = new BehaviorSubject({});
   constructor() { }
-  setImageDetails(details: any[]=[]) {
+  setImageDetails(details: any[]) {
     this.imageDetails.next(details)
   }
   setFormDetails(form:object){
@@ -18,4 +18,5 @@ export class SharedService {
   setTableValue(user:object) {
     this.tableDetails.next(user)
   }
+
 }
