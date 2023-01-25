@@ -1,19 +1,31 @@
-<p-card header="Submitted Form">
-  <div class="grid p-fluid flex-column">
-    <div class=" justify-content-center" *ngFor="let item of summaryObj.form | keyvalue">
+<ng-container *ngIf="summaryObj">
+  <p-card header="Submitted Form">
+    <div class="grid p-fluid flex-column">
+      <div class=" justify-content-center" *ngFor="let item of summaryObj.form | keyvalue">
         <p>{{item.key}} : {{item.value}}</p>
       </div>
-  </div>
-</p-card>
-<p-card header="Uploaded Image" *ngIf="summaryObj?.image[0]">
-  <div class="grid p-fluid justify-content-center">
-    <p>Image name : {{summaryObj?.image[0]?.name}}</p>
-  </div>
-</p-card>
-<p-card header="selected Person">
-  <div class="grid p-fluid justify-content-center flex-column">
-    <p>Name : {{summaryObj.table.name}}</p>
-    <p>Age : {{summaryObj.table.age}}</p>
-    <p>Rate : {{summaryObj.table.rate}}</p>
-  </div>
-</p-card>
+    </div>
+  </p-card>
+  <p-card header="Uploaded Image" *ngIf="summaryObj?.image[0]">
+    <div class="grid p-fluid justify-content-center">
+      <p>Image name : {{summaryObj?.image[0]?.name}}</p>
+    </div>
+  </p-card>
+  <p-card header="selected Person">
+    <div class="grid p-fluid justify-content-center flex-column">
+      <p>Name : {{summaryObj.table.name}}</p>
+      <p>Age : {{summaryObj.table.age}}</p>
+      <p>Rate : {{summaryObj.table.rate}}</p>
+    </div>
+  </p-card>
+</ng-container>
+
+<ng-container *ngIf="!summaryObj">
+
+  <p-card header="No Details">
+    <div class="grid p-fluid justify-content-center flex-column">
+      Please fill the requierd Steps
+      <button pButton pRipple type="button" class="p-button-raised p-button-help w-1 mt-3" (click)="onPre(true)">Start</button>
+    </div>
+  </p-card>
+</ng-container>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {SharedService} from "../../services/shared.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-summary-step',
@@ -8,7 +9,7 @@ import {SharedService} from "../../services/shared.service";
 })
 export class SummaryStepComponent implements OnInit {
   summaryObj!: any;
-  constructor(public sharedService:SharedService) { }
+  constructor(public sharedService:SharedService, public router: Router) { }
 
   ngOnInit(): void {
    this.makeSummary()
@@ -19,6 +20,13 @@ export class SummaryStepComponent implements OnInit {
       form: this.sharedService.formDetails.getValue(),
       table: this.sharedService.tableDetails.getValue(),
     };
+    if (Object.keys(this.summaryObj.form).length ==0 || Object.keys(this.summaryObj.table).length ==0) {
+      this.summaryObj = null
+    }
     console.log(this.summaryObj)
+  }
+
+  onPre(b: boolean) {
+    this.router.navigate([""]);
   }
 }
